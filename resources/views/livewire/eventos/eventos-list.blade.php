@@ -60,15 +60,10 @@
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     Editar
                                 </a>
-                                <form action="{{ route('eventos.destroy', $event->id) }}" method="POST"
-                                    onsubmit="return confirm('Tem certeza que deseja excluir?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
-                                        Excluir
-                                    </button>
-                                </form>
+                                <button wire:click="destroy({{ $event->id }})"
+                                    class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                                    Excluir
+                                </button>
                             </div>
                         </div>
                     </div>
