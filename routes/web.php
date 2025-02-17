@@ -39,7 +39,7 @@ Route::prefix('eventos')->group(function () {
     Route::put('/{id}', [EventosController::class, 'update'])->name('eventos.update');
 
     // Excluir evento
-    Route::delete('/{id}', [EventosController::class, 'destroy'])->name('eventos.destroy');
+    Route::delete('/{id}', EventosList::class, 'destroy')->name('eventos.destroy');
 });
 
 Route::middleware('auth')->group(function () {

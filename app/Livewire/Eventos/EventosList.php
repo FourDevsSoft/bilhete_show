@@ -31,6 +31,23 @@ class EventosList extends Component
         ]);
     }
 
+
+    public function destroy($id)
+    {
+
+        // dd($id);
+        $evento = Eventos::find($id);
+    
+        if (!$evento) {
+            return redirect()->back()->with('error', 'Evento não encontrado.');
+        }
+    
+        $evento->delete();
+    
+        $this->dispatch('toastr:success', ['message' => 'Evento Excluído com sucesso!']);
+    
+    }
+
     // Método para aplicar ordenação
     public function sortBy($field)
     {
